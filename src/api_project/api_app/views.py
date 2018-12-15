@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -34,3 +35,14 @@ class HelloAPIView(APIView):
 
     def delete(self,request,pk=None):
         return Response({'message':'delete method'})
+
+class HelloViewSet(viewsets.ViewSet):
+    """docstring for HelloView."""
+    def list(self,request):
+        a_view = [
+        '1- the first in the list',
+        '2- the second in the list',
+        '3- the third in the list'
+        ]
+
+        return Response({'message':'Hello form viewsets','a_view':a_view})
