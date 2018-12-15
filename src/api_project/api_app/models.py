@@ -36,7 +36,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
 
 #To add functionality to our customized user class and it is required by django
-    object = UserProfileManager()
+    objects = UserProfileManager()
 #some django user model fields
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS=['name']
